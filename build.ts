@@ -1,24 +1,17 @@
-import { spawn } from 'bun'
-import { mkdirSync, readFileSync, writeFileSync } from 'fs'
-import { dirname } from 'path'
+import { build } from 'bun'
+import UnpluginTypia from '@ryoppippi/unplugin-typia/bun'
+import { mkdir } from 'fs/promises'
+import { readFile } from 'fs/promises'
+import { writeFile } from 'fs/promises'
 
-const compile = spawn({
-  cmd: [
-    'bun',
-    'build',
-    'src/index.ts',
-    '--bundle',
-    '--outfile=build/index.js',
-    '--minify',
-  ],
+await build({
+  entrypoints: ['src/index.ts'],
+  outdir: 'out',
+  target: 'browser',
+  minify: true,
+  plugins: [UnpluginTypia({ log: false })],
 })
-
-await compile.exited
-
-const meta = readFileSync('meta.js')
-mkdirSync(dirname('build/index.js'), { recursive: true })
-const body = readFileSync('build/index.js')
-mkdirSync(dirname('dist/ap-classroom-answer-parser.user.js'), {
-  recursive: true,
-})
-writeFileSync('dist/ap-classroom-answer-parser.user.js', meta + '\n' + body)
+;['out', 'dist'].forEach(async (dir) => await mkdir(dir, { recursive: true }))
+const meta = await readFile('meta.js')
+const body = await readFile('out/index.js')
+await writeFile('dist/ap-classroom-answer-parser.user.js', meta + '\n' + body)
