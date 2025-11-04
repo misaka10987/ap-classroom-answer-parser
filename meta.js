@@ -6,4 +6,5 @@
 // @description Retrieve correct answers from AP Classroom network requests
 // @match       *://*/*
 // @grant       GM_registerMenuCommand
+// @grant       GM.openInTab
 // ==/UserScript==

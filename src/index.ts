@@ -34,3 +34,9 @@ GM_registerMenuCommand('Run', () => {
   const message = answer.map((item, idx) => `Q${idx + 1}: ${item}`).join('\n')
   alert(message)
 })
+
+GM_registerMenuCommand('Usage Help', () => {
+  GM.openInTab(
+    'https://github.com/misaka10987/ap-classroom-answer-parser?tab=readme-ov-file#usage'
+  )
+})
