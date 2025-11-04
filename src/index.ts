@@ -42,8 +42,10 @@ const parseAnswer = (json: string): string[] => {
 }
 
 GM_registerMenuCommand('Run', () => {
-  const json =
-    prompt('Enter the JSON response body from the `activity?` request') ?? ''
+  const json = prompt(
+    'Enter the JSON response body from the `activity?` request'
+  )
+  if (!json) return
   try {
     const answer = parseAnswer(json)
     const message = answer.map((item, idx) => `Q${idx + 1}: ${item}`).join('\n')
