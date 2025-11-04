@@ -1,0 +1,16 @@
+{
+  "name": "ap-classroom-answer-parser",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/tampermonkey": "^5.0.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "build": "bun build.ts"
+  }
+}
