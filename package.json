@@ -13,6 +13,7 @@
     "typescript": "~5.9.2"
   },
   "scripts": {
+    "check": "bun x tsc --noEmit",
     "build": "bun build.ts",
     "prepare": "ts-patch install"
   },

@@ -1,9 +1,10 @@
-import { build } from 'bun'
+import { build, spawn } from 'bun'
 import UnpluginTypia from '@ryoppippi/unplugin-typia/bun'
 import { mkdir } from 'fs/promises'
 import { readFile } from 'fs/promises'
 import { writeFile } from 'fs/promises'
 
+await spawn({ cmd: ['bun', 'run', 'check'] }).exited
 await build({
   entrypoints: ['src/index.ts'],
   outdir: 'out',
