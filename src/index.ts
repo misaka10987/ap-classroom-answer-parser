@@ -5,24 +5,22 @@ import { assertParse } from 'typia/lib/json'
 interface QuestionData {
   data: {
     apiActivity: {
-      items: [
-        {
-          questions: [
-            {
-              validation: {
-                valid_response: {
-                  value: [string]
-                }
+      items: {
+        questions: [
+          {
+            validation: {
+              valid_response: {
+                value: [string]
               }
-              options: [
-                {
-                  value: string
-                }
-              ]
             }
-          ]
-        }
-      ]
+            options: [
+              {
+                value: string
+              }
+            ]
+          }
+        ]
+      }[]
     }
   }
 }
