@@ -13,11 +13,9 @@ interface QuestionData {
                 value: [string]
               }
             }
-            options: [
-              {
-                value: string
-              }
-            ]
+            options: {
+              value: string
+            }[]
           }
         ]
       }[]
