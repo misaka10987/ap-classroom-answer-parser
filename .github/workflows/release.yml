@@ -31,7 +31,7 @@ jobs:
           else
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
-          
+
       - name: Install dependencies
         if: steps.check_tag.outputs.exists == 'false'
         run: bun install
@@ -46,5 +46,4 @@ jobs:
         with:
           tag_name: v${{ steps.pkg.outputs.version }}
           name: Release v${{ steps.pkg.outputs.version }}
-          files: dist/${{ github.event.repository.name }}.user.js
-
+          files: dist/user.js

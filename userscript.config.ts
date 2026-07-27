@@ -1,7 +1,7 @@
-import pack from './package.json' assert { type: 'json' }
+import pack from './package.json' with { type: 'json' }
 import { type Metadata } from '@jeiea/userscript-metadata'
 
-export const userscriptConfig: Metadata = {
+const config: Metadata = {
   '@name': [pack.name],
   '@namespace': [pack.homepage],
   '@version': [pack.version],
@@ -10,3 +10,5 @@ export const userscriptConfig: Metadata = {
   '@match': ['*://*/*'],
   '@grant': ['GM_registerMenuCommand', 'GM.openInTab'],
 }
+
+export default config
